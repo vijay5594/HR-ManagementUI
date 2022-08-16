@@ -1,0 +1,123 @@
+<!-- <nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid">
+        <h5 class="navbar-brand text-light">Employee Details</h5>
+        <a href="#"> &nbsp; </a>
+    </div>
+</nav> -->
+<!-- <div class="container-fluid">
+    <div class="row mt-4 mb-4">
+        <div class="col-4">
+        <h6>+611515</h6>
+        </div>
+        <div class="col-4">
+            <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+        </div>
+        <div class="col-4">
+            <button type="button" class="btn btn-primary btn-sm" (click)="onClick()">
+                Add Employee
+            </button>
+        </div>
+    </div>
+</div>-->
+
+
+
+
+<div class="container-fluid">
+    <div class="row mt-2 g-4 bg-forrow justify-content-evenly">
+        <div class="col-md-3 col-sm-6 mt-3" *ngFor="let data of isData" data-toggle="modal">
+            <div class="card d-flex align-items-center">
+                <div class="row g-0">
+                    <div class="col-4 col-md-12 col-sm-4 dflex align-items-center">
+                        <div class="dflex pt-3 ">
+                            <img src="../../assets/bg-1.png" class="card-img-top" alt="..."
+                                (click)="getEmployeeDetails(data)">
+                        </div>
+                    </div>
+                    <div class="col-8 col-md-12 col-sm-8">
+                        <div class="card-body">
+                            <h5 class="card-title mb-3 dflex"> {{data.firstName}}&nbsp;{{data.lastName}}
+                            </h5>
+                            <p class="card-text text-center">{{data.number}}<br />
+                            <p class="card-text text-center textCen text-black-50">{{data.designation}}
+                                <br />
+                                {{data.joiningDate | date:'dd-MM-yyyy'}}
+                            </p>
+                            <p class="card-text text-center textCen text-black-50"><b>{{data.emailId}}</b>
+                            </p>
+                            <button type="submit" class="btn btn-danger btn-sm"
+                                (click)="leaveApplyOn(data.employeeId)">Apply Leave</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" [style.display]="showModal ? 'block' : 'none'">
+    <div class="modal-dialog">
+        <div class="modal-content" [formGroup]="employeeDetail">
+            <div class="modal-header">
+                <h3 class="modal-title text-white"> EMPLOYEE DETAILS</h3>
+                <button type="button" class="btn-close closebutton" (click)="showModal=false"></button>
+            </div>
+            <div class="modal-body scrollbar" id="style-1">
+                <div class="row modalbody">
+                    <div class="mb-3">
+                        <label class=" form-label">First Name</label>
+                        <input class="form-control" [ngModel]="employee?.employeeId" formControlName="employeeId">
+                    </div>
+                    <div class="mb-3">
+                        <label class=" form-label">First Name</label>
+                        <input class="form-control" [ngModel]="employee?.firstName" formControlName="firstName">
+                    </div>
+                    <div class="mb-3">
+                        <label class=" form-label">Last Name</label>
+                        <input class="form-control" [ngModel]="employee?.lastName" formControlName="lastName">
+                    </div>
+                    <div class="mb-3">
+                        <label class=" form-label">Email Id</label>
+                        <input class="form-control" [ngModel]="employee?.emailId" formControlName="emailId">
+                    </div>
+                    <div class="mb-3">
+                        <label class=" form-label">Date Of Birth</label>
+                        <input class="form-control" [ngModel]="employee?.dob" formControlName="dob">
+                    </div>
+                    <div class="mb-3">
+                        <label class=" form-label">Number</label>
+                        <input class="form-control" [ngModel]="employee?.number" formControlName="number">
+                    </div>
+                    <div class="mb-3">
+                        <label class=" form-label">Date Of Joining</label>
+                        <input class="form-control" [ngModel]="employee?.joiningDate" formControlName="joiningDate">
+                    </div>
+                    <div class="mb-3">
+                        <label class=" form-label">Address</label>
+                        <input class="form-control" [ngModel]="employee?.address" formControlName="address">
+                    </div>
+                    <div class="mb-3">
+                        <label class=" form-label">Desigination</label>
+                        <input class="form-control" [ngModel]="employee?.designation" formControlName="designation">
+                    </div>
+                    <div class="mb-3">
+                        <label class=" form-label">Gender</label>
+                        <input class="form-control" [ngModel]="employee?.gender" formControlName="gender">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class=" form-label">Download Attachment</label>
+                        <app-attachment [attachmentId]="attachment"> </app-attachment>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" style="float: left;"
+                    (click)="showModal=false">Cancel</button>
+                <button type="button" class="btn btn-primary" style="float: right;"
+                    (click)="updateEmployee(employeeDetail.value)">Update and
+                    Save</button>
+            </div>
+        </div>
+    </div>
+</div>
