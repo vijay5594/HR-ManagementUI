@@ -87,36 +87,36 @@ if(this.userService.Role=="Employee"){
   onClick() {
     this.router.navigate(['/addemployee'])
   }
-  showNavContent: boolean;
-  openNav() {
-    let sidenav = document.getElementById("sideNav");
-    let main = document.getElementById("main");
-    if (window.innerWidth < 500) {
-      if (this.showNavContent == false) {
-        sidenav.style.width = "0px";
-        main.style.marginLeft = "0px";
-        this.showNavContent = true;
-      }
-      else {
-        sidenav.style.width = "60px";
-        main.style.marginLeft = "60px";
-        this.showNavContent = false;
-      }
-    }
-    else {
+  // showNavContent: boolean;
+  // openNav() {
+  //   let sidenav = document.getElementById("sideNav");
+  //   let main = document.getElementById("main");
+  //   if (window.innerWidth < 500) {
+  //     if (this.showNavContent == false) {
+  //       sidenav.style.width = "0px";
+  //       main.style.marginLeft = "0px";
+  //       this.showNavContent = true;
+  //     }
+  //     else {
+  //       sidenav.style.width = "60px";
+  //       main.style.marginLeft = "60px";
+  //       this.showNavContent = false;
+  //     }
+  //   }
+  //   else {
 
-      if (this.isNavOpen == false) {
-        sidenav.style.width = "60px";
-        main.style.marginLeft = "60px";
-        this.isNavOpen = true;
-      }
-      else {
-        sidenav.style.width = "200px";
-        main.style.marginLeft = "200px";
-        this.isNavOpen = false;
-      }
-    }
-  }
+  //     if (this.isNavOpen == false) {
+  //       sidenav.style.width = "60px";
+  //       main.style.marginLeft = "60px";
+  //       this.isNavOpen = true;
+  //     }
+  //     else {
+  //       sidenav.style.width = "200px";
+  //       main.style.marginLeft = "200px";
+  //       this.isNavOpen = false;
+  //     }
+  //   }
+  // }
   leaveApplyOn(id: any) {
     console.log(id, 'helo')
     this.userService.EmployeeId = id
